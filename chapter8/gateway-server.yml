@@ -29,13 +29,17 @@ spring:
           filters:
             - RewritePath=/license/(?<path>.*), /$\{path}
         - id: google-route
-          uri: https://www.google.com
-          predicates:
-            - Path=/google/**
-        - id: baylor-route
-          uri: https://www.baylor.edu
-          predicates:
-            - Path=/baylor/**
+        uri: https://www.google.com
+        predicates:
+        - Path=/google/**
+        filters:
+        - RewritePath=/google/(?<path>.*), /$\{path}
+      - id: baylor-route
+        uri: https://www.baylor.edu
+        predicates:
+        - Path=/baylor/**
+        filters:
+        - RewritePath=/baylor/(?<path>.*), /$\{path}
 
 management:
   endpoints:
