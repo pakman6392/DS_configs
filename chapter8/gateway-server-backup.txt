@@ -29,7 +29,7 @@ spring:
           filters:
             - RewritePath=/license/(?<path>.*), /$\{path}
         - id: google-route
-          uri: https://www.google.com
+          uri: https://www.youtube.com
           predicates:
             - Path=/google/**
         - id: baylor-route
