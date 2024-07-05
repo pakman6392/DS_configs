@@ -15,7 +15,7 @@ spring:
     gateway:
       discovery:
         locator:
-          enabled: false  # Disable service discovery locator
+          # enabled: false  # Disable service discovery locator
           lowerCaseServiceId: true
       routes:
         - id: organization-service
