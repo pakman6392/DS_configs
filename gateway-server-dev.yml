@@ -13,35 +13,21 @@ eureka:
 spring:
   cloud:
     gateway:
-      discovery:
-        locator:
-          # enabled: false  # Disable service discovery locator
-          lowerCaseServiceId: true
-      routes:
-        - id: organization-service
-          uri: lb://organization-service
-          predicates:
-            - Path=/organization/**
-          filters:
-            - RewritePath=/organization/(?<path>.*), /$\{path}
-        - id: licensing-service
-          uri: lb://licensing-service
-          predicates:
-            - Path=/license/**
-          filters:
-            - RewritePath=/license/(?<path>.*), /$\{path}
-        - id: google-route
-          uri: https://www.google.com
-          predicates:
-            - Path=/google/**
-          filters:
-            - RewritePath=/google/(?<path>.*), /$\{path}
-        - id: baylor-route
-          uri: https://www.baylor.edu
-          predicates:
-            - Path=/baylor/**
-          filters:
-            - RewritePath=/baylor/(?<path>.*), /$\{path}
+      discovery.locator:
+        enabled: true
+        lowerCaseServiceId: true
+
+# # Option 3 - Manuanl Mapping
+# spring:
+#   cloud:
+#     gateway:
+#       routes:
+#       - id: organization-services
+#         uri: lb://organization-service
+#         predicates:
+#         - Path=/organization/**
+#         filters:
+#         - RewritePath=/organization/(?<path>.*), /$\{path}
 
 management:
   endpoints:
