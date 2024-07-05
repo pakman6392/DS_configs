@@ -1,6 +1,6 @@
 server:
   port: 8072
- 
+
 eureka:
   instance:
     preferIpAddress: true
@@ -17,8 +17,8 @@ spring:
         enabled: false
     gateway:
       discovery:
-          locator:
-            enabled: false
+        locator:
+          enabled: false  # Disable service discovery locator
       routes:
         - id: organization-service
           uri: lb://organization-service
